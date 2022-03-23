@@ -1,0 +1,153 @@
+<p-toolbar [style]="{'background': '#0275d8'}">
+    <div class="p-toolbar-group-left" >  
+        <div class="navbar-brand dashbord">CarHUB</div>
+        <button pButton type="button" class="p-button-text p-button-lg" icon="pi pi-align-justify" (click)="toggleSidebar()" 
+        style="color: white; margin-left: 1.5rem;" ></button>
+    </div>
+    
+    <div class="p-toolbar-group-right" >
+        <span class="p-input-icon-right " style="margin-right: 0.5em;">
+          <i class="pi pi-search"></i>
+          <input type="text" pInputText  placeholder="Search">         
+        </span>
+        <!-- <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
+            Popover on bottom
+          </button> -->
+        <i class="pi pi-bell" pBadge severity="danger" value="2"  
+        style="margin-right: 0.5em; font-size: 2rem; color: white;" (click)="op.toggle($event)"
+        type = "button"></i>
+
+        <i class="pi pi-envelope" pBadge severity="danger" value="2" 
+        style="margin-right: 0.5em; font-size: 2rem; color: white;" type="button" (click)="op1.toggle($event)"></i>
+        <i class="pi pi-cog"  style="margin-right: 0.5em; font-size: 2rem; color: white;"></i>
+    </div>
+  </p-toolbar>  
+ 
+ 
+ <!-- Container for sidebar(s) + page content -->
+ <ng-sidebar-container>
+    <!-- A sidebar -->
+    <ng-sidebar [(opened)]="opened" position="left" mode="push" >
+        <!-- content to display on the size bar -->
+        <div class="">
+            <p-avatar image="assets/avatar.png" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+            <span >Administrateur</span>
+            <div class="status">
+                <i class="pi pi-circle-fill" style="color: green; font-size: small;"></i>
+                <span class="online m-2">Online</span>
+            </div>
+        </div>
+        <p-panelMenu   [model]="items" [style]="{'width':'300px'}"></p-panelMenu>
+   
+        
+    </ng-sidebar>
+
+    <!-- Page content -->
+
+    <!-- Display notifications-->
+    <div ng-sidebar-content>
+        <p-overlayPanel #op>
+            <ng-template pTemplate>
+                Notifications ...
+            </ng-template>
+        </p-overlayPanel>
+
+         <!-- Display notifications-->
+        <p-overlayPanel #op1>
+            <ng-template pTemplate>
+                Messages ...
+            </ng-template>
+        </p-overlayPanel>
+        <p class="ml-3 mt-3 dashbordtxt">Dashbord</p>
+        <!-- Dashbord contents-->
+    <div class="row">
+        <div class="col-md-4">
+            <p-card [style]="{'width': '21rem','margin': '1em','background':'#5bc0de','cursor':'pointer'}">
+                <div class="row text-white">
+                    <div class="col-md-3">
+                        <i class="pi pi-cog" style="font-size: xx-large;"></i>
+                    </div>
+                    <div class="col-md-9">
+                        <div><strong>ISSUES</strong></div>
+                        <div>Open : 5</div>
+                        <div>Overdue: 2</div>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+        <div class="col-md-4 ">
+            <p-card [style]="{'width': '21rem','margin': '1em','background':'#d9534f','cursor':'pointer'}">
+                <div class="row text-white">
+                    <div class="col-md-3">
+                        <i class="pi pi-bell" style="font-size: xx-large;"></i>
+                    </div>
+                    <div class="col-md-9">
+                        <div><strong>SERVICE REMINDERS</strong></div>
+                        <div>Overdue : 5</div>
+                        <div>Due soon: 2</div>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+        <div class="col-md-4 ">
+            <p-card [style]="{'width': '21rem','margin': '1em','background':'#5cb85c','cursor':'pointer'}">
+                <div class="row text-white">
+                    <div class="col-md-3">
+                        <i class="pi pi-car" style="font-size: xx-large;"></i>
+                    </div>
+                    <div class="col-md-9">
+                        <div><strong>VEHICLE STATUS</strong></div>
+                        <div>Active : 5</div>
+                        <div>Inactive: 2</div>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <p-card [style]="{'width': '21rem','margin': '1em','background':'#f0ad4e','cursor':'pointer'}">
+                <div class="row text-white">
+                    <div class="col-md-3">
+                        <i class="pi pi-car" style="font-size: xx-large;"></i>
+                    </div>
+                    <div class="col-md-9">
+                        <div><strong>VEHICLES</strong></div>
+                        <div>Assigned : 3</div>
+                        <div>Unassigned: 6</div>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+        <div class="col-md-4 ">
+            <p-card [style]="{'width': '21rem','margin': '1em','background':'#292b2c','cursor':'pointer'}">
+                <div class="row text-white">
+                    <div class="col-md-3">
+                        <i class="pi pi-compass" style="font-size: xx-large;"></i>
+                    </div>
+                    <div class="col-md-9">
+                        <div><strong>RENEWALL REMINDERS</strong></div>
+                        <div>Overdue : 5</div>
+                        <div>Due Soon: 2</div>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+        <div class="col-md-4 ">
+            <p-card [style]="{'width': '21rem','margin': '1em','background':'#5c5d9a','cursor':'pointer'}">
+                <div class="row text-white">
+                    <div class="col-md-3">
+                        <i class="pi pi-users" style="font-size: xx-large;"></i>
+                    </div>
+                    <div class="col-md-9">
+                        <div><strong>USER STATUS</strong></div>
+                        <div>Active : 4</div>
+                        <div>Inactive: 3</div>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+    </div>
+    </div>
+  </ng-sidebar-container>
